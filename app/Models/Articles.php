@@ -43,7 +43,7 @@ class Articles extends Model
          'author' => $author,
          'category' => $category,
      ]);
- }*/
+ }*/ 
  public static function insertArticle($updateData)
  {
      return DB::table('articles')

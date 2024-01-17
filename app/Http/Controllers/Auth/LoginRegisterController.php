@@ -1,5 +1,5 @@
 <?php
-
+ 
 namespace App\Http\Controllers\Auth;
 
 use App\Models\Articles;
@@ -68,7 +68,11 @@ class LoginRegisterController extends Controller
         if (Auth::check()) {
             $articles = Articles::all();
             $data['articles'] = $articles;
-            if (Auth::user()->email === 'admin@admin.com') {
+            // if (Auth::user()->email === 'admin@admin.com') {
+            //     $data['role'] = 'admin';
+            // }
+            if(str_contains(Auth::user()->email, "@editor"))
+            {
                 $data['role'] = 'admin';
             }
             else
@@ -96,9 +100,13 @@ class LoginRegisterController extends Controller
 
     public function valideaza(Request $request)
     {
-        if (Auth::user()->email === 'admin@admin.com') {
-            $data['role'] = 'admin';
-        } else { 
+        // if (Auth::user()->email === 'admin@admin.com') {
+        //     $data['role'] = 'admin';}
+        if(str_contains(Auth::user()->email, "@editor"))
+            {
+                $data['role'] = 'admin';
+            }
+        else { 
             $data['role'] = 'user';
         }
         $id = $request->input('articolId');
@@ -114,7 +122,8 @@ class LoginRegisterController extends Controller
         'author' => $request->author,
         'creationdate' => date('y-m-d h:i:s'),
         'validate' => 0,
-        'category' => $request->category
+        'categorie' => $request->category 
+        // am modificat din category in categorie 
     ]);
      
      return redirect()->route('dashboard');

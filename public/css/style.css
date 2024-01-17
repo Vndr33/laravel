@@ -1,0 +1,81 @@
+body{
+    background-color: #F3ECE9;
+}
+
+.menu{
+    background-color: #F3ECE9;
+    align-items: center;
+    justify-content: center;
+}
+
+.page_title{
+    text-align:center;
+    font-size: 50px;
+    color: #331C14;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;;
+
+}
+
+.form_buton_logout{
+    display: flex;
+    justify-content: right;
+}
+
+.buton_logout{
+    background-color: #905039;
+    border-radius: 12px;
+    padding: 10px;
+    width: 150px;
+    color: #F3ECE9;
+    border-color: #905039;
+}
+.buton_logout:hover{
+    background-color: #A87E68;
+    color: #331C14;
+    border-color: #A87E68;
+}
+
+.adauga_articole{
+    display: flex;
+    background-color: #A87E68;
+    height: 100px;
+    margin-top: 5px;
+    align-items: center;
+    justify-content: center;
+}
+
+.form_adauga_articol{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.label_form{
+    color: #331C14;
+    font-size: 30px;
+    margin-left: 5px;
+}
+
+.input_form{
+    background-color: #A87E68;
+    border:0;
+    border-bottom: 2px solid #905039;
+
+    margin-left: 5px;
+    color: #F3ECE9;
+    resize: none;
+}
+
+.submit_buton{
+    background-color: #331C14;
+    border-radius: 50px;
+    padding: 10px;
+    margin-left: 10px;
+    color: #F3ECE9;
+    
+}
+
+.submit_buton:hover{
+    background-color: #BFAC97;
+    color: #331C14;
+}
