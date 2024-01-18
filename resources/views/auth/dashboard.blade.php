@@ -15,102 +15,119 @@
 		<div class="menu" class="card" >
 			<h1 class="page_title"> Articole </h1>
 			
+			<a class="buton_open_add_page" href="{{route("openAddArticlePage")}}" >Add Article</a>
+			
 			<form class="form_buton_logout" action="{{ url('logout') }}" method="POST"> @csrf
 				<button class="buton_logout"  type="submit"> Logout </button>
 			</form>
-		</div> 
-
-		<div class="adauga_articole">
-
-			<form class="form_adauga_articol" action="{{ url('createArticle') }}" method="POST">
-				@csrf
-				<label class="label_form" for="title">Title:</label>
-				<input class="input_form" type="text" name="title" id="title" required>
-
-				<label class="label_form" for="description">Description:</label>
-				<textarea class="input_form" name="description" id="description" required></textarea>
-
-				<label class="label_form" for="author">Author:</label>
-				<input class="input_form" type="text" name="author" id="author" required>
-
-				<label class="label_form" for="category">Category:</label>
-				<input class="input_form" type="text" name="category" id="category" required>
-
-				<button class="submit_buton" type="submit">Submit</button>
-			</form>
 
 			
-		</div>
+		</div> 
 
+		
 		<div class="afiseaza_articole">
 			@if ($role === "admin")
 				@foreach ($articles as $article)
 
 					@if ($article['validate'] == 1) 
-						<div style="border: thin solid green">
-							<h2>{{$article['author']}}</h2>
-							<h2>{{$article['title']}}</h2>
-							<h2>{{$article['description']}}</h2>
-						</div>
+
+						
+
 					@else 
-						<div style="border: thin solid red">
-						<h2>{{$article['author']}}</h2>
-						<h2>{{$article['title']}}</h2>
-						<h2>{{$article['description']}}</h2>
-						<form action="{{ url('valideaza') }}" method="POST">@csrf<input type="hidden" name="articolId" value="{{$article['id']}}"><button style="display: block; margin-left: auto; margin-right: 5%;" type="submit"> Valideaza </button> </form>
+						<div class="aranjare_articol nevalid" >
+							<h2 class="autor">{{$article['author']}}</h2>
+							<h2 class="title">{{$article['title']}}</h2>
+							<h2 class = "continut">{{$article['description']}}</h2>
+							<label class="data"> 
+								Creation date: {{$article['creationdate']}}
+							</label>
+							<form class="form_valideaza" action="{{ url('valideaza') }}" 
+								method="POST">@csrf
+								<input 
+									type="hidden" 
+									name="articolId" 
+									value="{{$article['id']}}">
+								
+								<button class= "buton_valideaza" type="submit"> Valideaza </button> 
+							</form>
 						</div>
 					@endif
 				@endforeach
 			@else
-				<div style="font-size:300%;">Artistic </div>
+
+				<div class="div_categorie" > Artistic </div>
 					@foreach ($articles as $article)
 						@if ($article['validate'] == 1) 
 							@if ($article['categorie'] === 'cat1')
-							<div style="border: thin solid black">
-							<h2 style="font-size:300%;">{{$article['title']}}  </h2>
-							<h2 style="font-size:130%; color:grey;">{{$article['author']}}</h2>
-							<h2>{{$article['description']}}</h2>
-							<h2 style="font-size:30%; color:grey;">Creation date: {{$article['creationdate']}}</h2>
+
+								<div class="aranjare_articol">
+									
+										<h2 class="title">
+											{{$article['title']}}  
+										</h2>
+
+										<h3 class="autor">
+											{{$article['author']}}
+										</h3>
+
+										<h4 class = "continut">
+											{{$article['description']}}
+										</h4>
+
+										<label class="data"> 
+											Creation date: {{$article['creationdate']}}
+										</label>
+									
 								</div>
+								
 							@endif
 						@endif
 					@endforeach
-				<div style="font-size:300%;">Tehnic </div>
+
+				<div class="div_categorie">Tehnic </div>
 					@foreach ($articles as $article)
 						@if ($article['validate'] == 1) 
 							@if ($article['categorie'] == 'cat2')
-							<div style="border: thin solid black">
-							<h2 style="font-size:300%;">{{$article['title']}}  </h2>
-							<h2 style="font-size:130%; color:grey;">{{$article['author']}}</h2>
-							<h2>{{$article['description']}}</h2>
-							<h2 style="font-size:30%; color:grey;">Creation date: {{$article['creationdate']}}</h2>
+
+								<div class="aranjare_articol" >
+									<h2 class="title">{{$article['title']}}  </h2>
+									<h2 class="autor">{{$article['author']}}</h2>
+									<h2 class = "continut">{{$article['description']}}</h2>
+									<label class="data">Creation date: {{$article['creationdate']}}</label>
 								</div>
+
 							@endif
 						@endif
 					@endforeach
-            	<div style="font-size:300%;">Moda</div>
+
+            	<div class="div_categorie">Moda</div>
 					@foreach ($articles as $article)
 						@if ($article['validate'] == 1) 
 							@if ($article['categorie'] == 'cat3')
-							<div style="border: thin solid black">
-							<h2 style="font-size:300%;">{{$article['title']}}  </h2>
-							<h2 style="font-size:130%; color:grey;">{{$article['author']}}</h2>
-							<h2>{{$article['description']}}</h2>
-							<h2 style="font-size:30%; color:grey;">Creation date: {{$article['creationdate']}}</h2>
+
+								<div class="aranjare_articol">
+									<h2 class="title">{{$article['title']}}  </h2>
+									<h2 class="autor">{{$article['author']}}</h2>
+									<h2 class = "continut">{{$article['description']}}</h2>
+									<label class="data">Creation date: {{$article['creationdate']}}</label>
 								</div>
+
 							@endif
 						@endif
 					@endforeach
-        		<div style="font-size:300%;">Science</div>
+
+        		<div class="div_categorie">Science</div>
 				@foreach ($articles as $article)
 					@if ($article['validate'] == 1) 
 						@if ($article['categorie'] == 'cat4')
-						<div style="border: thin solid black">
-						<h2 style="font-size:300%;">{{$article['title']}}  </h2>
-						<h2 style="font-size:130%; color:grey;">{{$article['author']}}</h2>
-						<h2>{{$article['description']}}</h2>
-						<h2 style="font-size:30%; color:grey;">Creation date: {{$article['creationdate']}}</h2>
+
+							<div class="aranjare_articol">
+								<h2 class="title">{{$article['title']}}  </h2>
+								<h2 class="autor">{{$article['author']}}</h2>
+								<h2 class = "continut">{{$article['description']}}</h2>
+								<h2 label class="data">Creation date: {{$article['creationdate']}}</label>
 							</div>
+
 						@endif
 					@endif
 				@endforeach

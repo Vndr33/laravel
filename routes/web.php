@@ -24,4 +24,5 @@ Route::controller(LoginRegisterController::class)->group(function() {
                     Route::post('/logout', 'logout')->name('logout');
                     Route::post('/valideaza', 'valideaza')->name('valideaza');
                     Route::post('/createArticle', 'createArticle')->name('createArticle');
+                    Route::get('/dashbord/adaugaArticol', "open_add_article_page")->name("openAddArticlePage");
 });

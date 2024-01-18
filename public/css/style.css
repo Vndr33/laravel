@@ -1,26 +1,62 @@
 body{
     background-color: #F3ECE9;
 }
-
 .menu{
+    display: grid;
     background-color: #F3ECE9;
-    align-items: center;
-    justify-content: center;
+    /* align-items: stretch; */
+    grid-template-columns: auto 200px 200px;
+   
+    gap: 10px;
+    margin-bottom: 10px;
 }
-
 .page_title{
+    grid-column-start:1;
+  grid-column-end:4;
+  grid-row-start: 1;
+  grid-row-end: 2;
     text-align:center;
     font-size: 50px;
     color: #331C14;
     font-family: Verdana, Geneva, Tahoma, sans-serif;;
-
+    justify-content: center;
 }
-
 .form_buton_logout{
-    display: flex;
-    justify-content: right;
-}
+    grid-column-start:3;
+    grid-column-end:4;
+    grid-row-start: 2;
+    grid-row-end: 3;
 
+    /* display: flex; */
+    /* justify-content: right; */
+    justify-self: center;
+
+}
+.buton_open_add_page:link, .buton_open_add_page:visited{
+    grid-column-start:2;
+    grid-column-end:3;
+	grid-row-start: 2;
+    grid-row-end: 3;
+
+    text-decoration: none;
+    background-color: #905039;
+    color: #F3ECE9;
+    font-size: 17px;
+    padding: 10px;
+    width: 150px;
+    border-radius: 12px;
+    text-align: center;
+    justify-self:right;
+   
+
+}
+.buton_open_add_page:hover{
+    background-color: #E6DCD5;
+    color: #331C14;
+    border-color: #905039;
+    
+   
+}
 .buton_logout{
     background-color: #905039;
     border-radius: 12px;
@@ -28,54 +64,173 @@ body{
     width: 150px;
     color: #F3ECE9;
     border-color: #905039;
+    font-size: 17px;
+    
 }
 .buton_logout:hover{
-    background-color: #A87E68;
+    background-color: #F3ECE9;
     color: #331C14;
-    border-color: #A87E68;
+    border-color: #905039;
 }
-
 .adauga_articole{
     display: flex;
-    background-color: #A87E68;
+    background-color: #F3ECE9;
     height: 100px;
-    margin-top: 5px;
+    
+    margin-top: 100px;
     align-items: center;
     justify-content: center;
-}
+    border-radius: 5px;
 
+}
 .form_adauga_articol{
     display: flex;
     justify-content: center;
     align-items: center;
+    
+   
 }
-
 .label_form{
     color: #331C14;
     font-size: 30px;
     margin-left: 5px;
+    
 }
-
 .input_form{
-    background-color: #A87E68;
+    background-color: #F3ECE9;
     border:0;
     border-bottom: 2px solid #905039;
-
+    
     margin-left: 5px;
-    color: #F3ECE9;
+    color: #331C14;
     resize: none;
 }
-
 .submit_buton{
-    background-color: #331C14;
-    border-radius: 50px;
+    background-color: #905039;
+    border-radius: 35px;
+    width: 150px;
     padding: 10px;
     margin-left: 10px;
     color: #F3ECE9;
+    font-size: 17px;
+}
+.submit_buton:hover{
+    background-color: #F3ECE9;
+    color: #331C14;
+    border-color: #905039;
+}
+.div_categorie{
+    background-color: #F3ECE9;
+    color: #905039;
+    font-size: 80px;
+    display: flex;
+    justify-content: center;
+    margin-top: 25px;
+}
+.aranjare_articol{
+    display: grid;
+    grid-template: none;
+    background-color: #E6DCD5;
+    border-radius: 10px;
+    margin: 5px 0px 2px 0px;
+    align-items: center;
+   
+}
+.title{
+    grid-column-start: 1;
+    grid-column-end: 2;
+    grid-row-start: 1;
+    grid-row-end: 3;
+    color: #331C14;
+
+    justify-self: start;
+    font-size: 40px;
+
+    margin-left: 10px;
+    /*margin-right: 300px; */
+}
+.autor{
+    grid-column-start: 2;
+    grid-column-end: 3;
+    grid-row-start: 1;
+    grid-row-end: 3;
+    color: #A87E68;
+    font-size: 25px;
+    margin-right: 400px;
+
+    justify-self: center;
+    
+}
+.continut{
+    color: #B49580;
+    grid-column-start: 3;
+    grid-column-end: 4;
+    grid-row-start: 1;
+    grid-row-end: 3;
+
+    justify-self: end;
+    font-size: 18px;
+}
+.data{
+    grid-column-start: 4;
+    grid-column-end: 6;
+    grid-row-start: 3;
+    grid-row-end: 4;
+    color: #BFAC97;
+
+    justify-self: end;
+    font-size: 12px;
+    margin-right: 10px;
+    margin-bottom: 5px;
+}
+.form_valideaza{
+    grid-column-start: 5;
+    grid-column-end: 6;
+    grid-row-start: 1;
+    grid-row-end: 3;
+}
+.buton_valideaza{
+    background-color: #A87E68;
+    border-radius: 12px;
+    padding: 10px;
+    width: 150px;
+    color: #F3ECE9;
+    border-color: #905039;
     
 }
 
-.submit_buton:hover{
-    background-color: #BFAC97;
+.buton_valideaza:hover{
+    background-color: #B49580;
+    color: #331C14;
+}
+
+
+.buton_login{
+    background-color: #905039;
+    border-radius: 10px;
+    width: 150px;
+    height: 35px;
+    font-size: 19px;
+    color: #F3ECE9;
+
+}
+
+.buton_login:hover{
+    background-color: #F3ECE9;
+    border-color: #905039;
+
+    color: #331C14;
+}
+
+.titlu_pagina{
+    font-size: 50px;
+    color: #331C14;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;;
+}
+.input_login{
+    background-color: #F3ECE9;
+    border:0;
+    border-bottom: 2px solid #905039;
+    margin-left: 10px;
     color: #331C14;
 }

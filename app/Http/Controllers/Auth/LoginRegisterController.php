@@ -67,6 +67,7 @@ class LoginRegisterController extends Controller
     {
         if (Auth::check()) {
             $articles = Articles::all();
+            //$articles = Articles::get_articole_nevalidate();
             $data['articles'] = $articles;
             // if (Auth::user()->email === 'admin@admin.com') {
             //     $data['role'] = 'admin';
@@ -114,6 +115,7 @@ class LoginRegisterController extends Controller
         $data['articles'] = Articles::all();
         return redirect()->route('dashboard');
     }
+    
     public function createArticle(Request $request)
     {
      Articles::insertArticle([
@@ -125,7 +127,13 @@ class LoginRegisterController extends Controller
         'categorie' => $request->category 
         // am modificat din category in categorie 
     ]);
-     
      return redirect()->route('dashboard');
    }
+
+
+   public function open_add_article_page()
+   {
+        return view("auth.add_article_page");
+   }
+
 }
